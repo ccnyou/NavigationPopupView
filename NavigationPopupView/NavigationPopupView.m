@@ -14,8 +14,6 @@
 @interface NavigationPopupView  ()
 
 @property (nonatomic, strong) UIView* containerView;
-//@property (nonatomic, assign) BOOL isViewPoped;
-//@property (nonatomic, assign) CGRect popupViewFrame;
 
 @end
 
@@ -81,12 +79,21 @@
     [self.containerView addSubview:self.popupView];
     [self rotateArrow:M_PI];
     [self.popupView show];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(navigationPopupViewDidShow:)]) {
+        [self.delegate navigationPopupViewDidShow:self];
+    }
+    
 }
 
 - (void)onHide
 {
     [self.popupView hide];
     [self rotateArrow:0];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(navigationPopupViewDidHide:)]) {
+        [self.delegate navigationPopupViewDidHide:self];
+    }
 }
 
 

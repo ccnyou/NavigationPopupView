@@ -10,7 +10,14 @@
 #import "TitleButton.h"
 #import "PopupView.h"
 
+@class NavigationPopupView;
+
 @protocol NavigationPopupViewDelegate <NSObject>
+
+@optional
+- (void)navigationPopupViewDidShow:(NavigationPopupView *)popupView;
+- (void)navigationPopupViewDidHide:(NavigationPopupView *)popupView;
+
 @end
 
 
