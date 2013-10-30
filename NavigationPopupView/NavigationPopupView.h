@@ -23,13 +23,18 @@
 
 @interface NavigationPopupView : UIView<PopupViewDelegate>
 
-- (id)initWithButtonFrame:(CGRect)frame popupViewFrame:(CGRect)popupViewFrame andTitle:(NSString *)title;
-
 @property (nonatomic, strong) TitleButton *titleButton;
 @property (nonatomic,   weak) id<NavigationPopupViewDelegate> delegate;
 @property (nonatomic, strong) PopupView* popupView;
 
+
+- (id)initWithButtonFrame:(CGRect)frame popupViewFrame:(CGRect)popupViewFrame andTitle:(NSString *)title;
+
 - (void)setTitle:(NSString *)title;
 - (void)displayInView:(UIView *)aView;
+
+//两个方法供用户手动弹出或收起
+- (void)show;
+- (void)hide;
 
 @end

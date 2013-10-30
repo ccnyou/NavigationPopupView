@@ -83,7 +83,6 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(navigationPopupViewDidShow:)]) {
         [self.delegate navigationPopupViewDidShow:self];
     }
-    
 }
 
 - (void)onHide
@@ -110,6 +109,18 @@
 {
     self.titleButton.isActive = !self.titleButton.isActive;
     [self onHandleMenuTap:nil];
+}
+
+- (void)show
+{
+    self.titleButton.isActive = YES;
+    [self onPopupUp];
+}
+
+- (void)hide
+{
+    self.titleButton.isActive = NO;
+    [self onHide];
 }
 
 @end
